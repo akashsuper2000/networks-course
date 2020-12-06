@@ -1,0 +1,22 @@
+package socket;
+
+import java.util.*;
+import java.net.*; 
+import java.io.*;
+class connectionClient{
+ public static void main(String[ ] args){
+	 Scanner in = new Scanner(System.in);
+ try{
+ InetAddress acceptorHost = InetAddress.getByName(in.nextLine());
+ int serverPortNum = Integer.parseInt(args[1]);
+ Socket clientSocket = new Socket(acceptorHost, serverPortNum);
+ BufferedReader br = new BufferedReader(new
+ InputStreamReader(clientSocket.getInputStream( )));
+ System.out.println(br.readLine( ));
+ clientSocket.close();
+ }
+ catch(Exception e){
+ e.printStackTrace( );
+ }
+ }
+ }
